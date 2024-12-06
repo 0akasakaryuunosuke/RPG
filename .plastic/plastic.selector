@@ -1,0 +1,4 @@
+repository "RRGpractice@tj_methylbird@cloud.cn"
+  path "/"
+    br "/main"
+    co "/main"
