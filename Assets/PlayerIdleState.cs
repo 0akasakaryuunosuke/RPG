@@ -11,13 +11,14 @@ public class PlayerIdleState : PlayerGroundedState
     public override void Enter()
     {
         base.Enter();
+        player.ZeroVelocity();
     }
 
     public override void Update()
     {
         base.Update();
-        player.SetVelocity(0,player.rb.velocity.y);
-        if (xInput!=0)
+        //player.SetVelocity(0,player.rb.velocity.y);
+        if (xInput!=0&&!player.isBusy)
         {
             stateMachine.changeState(player.moveState);
         }

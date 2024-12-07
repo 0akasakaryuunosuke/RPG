@@ -24,7 +24,11 @@ public class PlayerDashState : PlayerState
         {
             stateMachine.changeState(player.idleState);
         }
-        
+
+        if (!player.IsGroundDetected()&&player.IsWallDetected())
+        {
+            stateMachine.changeState(player.wallSlideState);
+        }
     }
 
     public override void Exit()

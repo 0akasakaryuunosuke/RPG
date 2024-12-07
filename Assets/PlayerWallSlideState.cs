@@ -17,11 +17,17 @@ public class PlayerWallSlideState : PlayerState
     public override void Update()
     {
         base.Update();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            stateMachine.changeState(player.wallJumpState);
+            return;
+        }
         rb.velocity = yInput<0 ? new Vector2(0, rb.velocity.y):new Vector2(0, rb.velocity.y * .4f);
         if (player.IsGroundDetected())
         {
             stateMachine.changeState(player.idleState);
         }
+
         if (xInput != 0 && player.facingDir != xInput)
         {
             stateMachine.changeState(player.idleState);
